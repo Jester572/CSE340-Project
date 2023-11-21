@@ -58,4 +58,45 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* **************************************
+* Build the Inventory view HTML
+* ************************************ */
+Util.buildSingleInventoryPage = async function (data) {
+  let page
+  let imageSection
+  let infoSection
+  const vehicle = data[0]
+
+  // Build the ImageSection for vehicle
+  imageSection = '<div id="vehicle-img-section">'
+  imageSection += '<img src="' + vehicle.inv_image + '"alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model + ' on CSE Motors" >'
+
+  imageSection += '</div >'
+
+  // Build the InformationSection for vehicle
+  infoSection = '<div id="vehicle-info-section">'
+  infoSection += '<h1>' + vehicle.inv_year + ' ' + vehicle.inv_make + ', ' + vehicle.inv_model + '</h1>'
+  infoSection += '<p>' + '<b>Price: </b>$' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</p>'
+  infoSection += '<p>' + '<b>Color: </b>' + vehicle.inv_color + '</p>'
+  infoSection += '<p>' + '<b>Description: </b>' + vehicle.inv_description + '</p>'
+  infoSection += '<p>' + '<b>Mileage: </b>' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</p>'
+
+  infoSection += '</div>'
+
+  // Combine the two sections into one page
+  page = '<div id="single-inv-display">'
+  page += imageSection
+  page += infoSection
+  page += '</div>'
+
+  return page
+}
+
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for 
+ * General Error Handling
+ **************************************** */
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+
 module.exports = Util
