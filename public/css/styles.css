@@ -1,0 +1,176 @@
+:root {
+  --primary-color: #004C6D;
+  --secondary-color: #A9A9A9;
+  --accent-color: #eb4c4c;
+}
+
+/******* Change Box Model ***************/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/******* Generals ***************/
+body{
+  border: 5px solid var(--secondary-color);
+  border-radius: 25px;
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+
+}
+
+
+/******* Header ***************/
+
+.siteName {
+  font-size: xx-large;
+}
+
+#top-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*******  Navigation ***************/
+
+nav ul {
+  background-color: var(--primary-color);
+  list-style-type: none;
+  display: flex;
+  padding: 15px 0px;
+}
+
+nav ul li {
+  flex: 1 1 auto;
+  text-align: center;
+
+}
+
+nav ul li a {
+  color: white;
+}
+
+/*******  Main ***************/
+
+#carImg {
+  display: block;
+  margin: auto;
+  width: 100%;
+  
+}
+
+#ownToday {
+  display: flex;
+  flex-direction: column;
+  background-color: #a9a9a96f;
+  border: 1px solid black;
+  padding: 5px;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  width: 40%;
+}
+
+#ownToday p,
+#ownToday h2 {
+  margin: 0px 10px;
+}
+
+#ownToday img {
+  width: 60%;
+
+}
+
+#reviews_upgrades {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+#upgrades {
+  grid-row: 1;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 70px auto auto;
+  row-gap: 15px;
+}
+
+
+#upgrades h2 {
+  grid-column: 1/3;
+}
+
+.upgrade-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+  background-color: var(--primary-color);
+  padding: 15px;
+}
+
+.upgrade-wrapper a {
+  margin-top: 5px;
+  text-decoration: underline;
+  color: white;
+}
+
+#reviews {
+  grid-row: 2;
+  justify-items: center;
+  display: grid;
+  grid-template-rows: 70px auto;
+}
+
+#reviews h2 {
+  grid-row: 1;
+}
+
+h1, h2, h3 {
+  font-size: x-large;
+}
+
+/******* Cars  *********/
+
+#inv-display {
+  background-color: var(--primary-color);
+  list-style-type: none;
+  display: grid;
+  padding: 0px;
+  text-align: center;
+}
+
+#inv-display li {
+  background-color: var(--secondary-color);
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+}
+
+/********* Single Vehicle *************/
+
+#vehicle-info-section h1{
+  text-align: center;
+  text-decoration: underline;
+  border: 1px solid black ;
+  border-radius: 15px;
+  background-color: var(--secondary-color);
+  box-shadow: 5px 5px 15px black;
+}
+
+#vehicle-img-section {
+  padding: 5px;
+  margin: 5px;
+  background-color: var(--secondary-color);
+  box-shadow: 5px 5px 15px;
+}

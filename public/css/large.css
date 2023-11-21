@@ -1,0 +1,58 @@
+@media only screen and (min-width: 32.5em) {
+    html {
+        background-image: url('../images/site/checkerboard.jpg');
+    }
+
+    body {
+        background-color: white;
+        max-width: 1100px;
+        margin: 25px auto;
+        padding: 8px;
+    }
+    
+    #ownToday{
+        width: auto;
+    }
+
+    #reviews_upgrades {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    #reviews {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    #upgrades {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    /********* Inventory Display **********/
+    #inv-display {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /********* Single Vehicle *************/
+
+    #single-inv-display {
+        display: flex;
+        border: 3px solid black;
+    }
+    
+    #vehicle-img-section {
+        width: 50%;
+
+        justify-self: center;
+        align-self: center;
+    }
+
+    #vehicle-info-section {
+        width: 50%;
+        padding: 5px;
+        border-left: 3px solid black;
+    }
+
+}
