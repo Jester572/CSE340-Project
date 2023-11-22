@@ -34,4 +34,8 @@ invCont.buildByInventoryId = async function (req, res) {
   })
 }
 
+invCont.error500 = async function(req, res, next) {
+  next({status: 500, message: 'It broke'})
+}
+
 module.exports = invCont
