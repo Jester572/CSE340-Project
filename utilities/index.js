@@ -108,24 +108,6 @@ Util.buildLogin = function () {
   return login
 }
 
-/* **************************************
-* Build the Register view HTML
-* ************************************ */
-Util.buildRegister = function () {
-  let register = '<div id="register-form">'
-  register += '<form action="/account/register" method="post">'
-  register += '<label for="account_firstname">First Name:</label></br><input name="account_firstname" type="text" required id="fname"></br>'
-  register += '<label for="account_lastname">Last Name:</label></br><input name="account_lastname" type="text" required id="lname"></br>'
-  register += '<label for="account_email">E-mail:</label></br><input name="account_email" type="email" id="email" required placeholder="Enter a valid email address"></br>'
-  register += '<label for="account_password">Password:</label></br><input name="account_password" type="password" id="password" required pattern="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\\s).{12,}$"></br>'
-  register += '<div> <h4>Password Must Include:</h4><ul><li>12 characters</li> <li>1 uppercase character</li> <li>1 number</li><li>1 special character</li></ul></div>'
-  register += '<input type="submit" id="register-button" value="Register">'
-  register += '</form>'
-  register += '</div>'
-
-  return register
-}
-
 
 /* ****************************************
  * Middleware For Handling Errors
