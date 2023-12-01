@@ -92,6 +92,41 @@ Util.buildSingleInventoryPage = async function (data) {
   return page
 }
 
+/* **************************************
+* Build the Login view HTML
+* ************************************ */
+Util.buildLogin = function () {
+  let login = '<div>'
+  login += '<form id="loginForm" action="/account/login" method="post">'
+  login += '<label for="account_email">E-mail:</label></br><input name="account_email" type="email" id="email" required placeholder="Enter a valid email address"></br>'
+  login += '<label for="account_password">Password:</label></br><input name="account_password" type="password" id="password" required></br>'
+  login += '<input type="submit" id="login-button" value="Log In">'
+  login += '<h2>No account? <a href="/account/register">Sign-up</a></h2>'
+  login += '</form>'
+  login += '</div>'
+
+  return login
+}
+
+/* **************************************
+* Build the Register view HTML
+* ************************************ */
+Util.buildRegister = function () {
+  let register = '<div id="register-form">'
+  register += '<form action="/account/register" method="post">'
+  register += '<label for="account_firstname">First Name:</label></br><input name="account_firstname" type="text" required id="fname"></br>'
+  register += '<label for="account_lastname">Last Name:</label></br><input name="account_lastname" type="text" required id="lname"></br>'
+  register += '<label for="account_email">E-mail:</label></br><input name="account_email" type="email" id="email" required placeholder="Enter a valid email address"></br>'
+  register += '<label for="account_password">Password:</label></br><input name="account_password" type="password" id="password" required></br>'
+  register += '<div> <h4>Password Must Include:</h4><ul><li>12 characters</li> <li>1 uppercase character</li> <li>1 number</li><li>1 special character</li></ul></div>'
+  register += '<input type="submit" id="register-button" value="Register">'
+  register += '</form>'
+  register += '</div>'
+
+  return register
+}
+
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

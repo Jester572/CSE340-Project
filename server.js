@@ -12,9 +12,11 @@ const app = express();
 const static = require("./routes/static");
 const baseController = require('./controllers/baseController');
 const inventoryRoute = require('./routes/inventoryRoute');
+const accountRoute = require('./routes/accountRoute');
 const utilities = require('./utilities/index');
 const session = require("express-session")
 const pool = require('./database/')
+const bodyParser = require('body-parser');
 
 /* ***********************
  * Middleware
@@ -29,6 +31,10 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 
 
 // Express Messages Middleware
@@ -50,7 +56,11 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(static)
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
+// Account routes
+app.use("/account", accountRoute)
+// Inventory routes
 app.use("/inv", inventoryRoute)
+// Error page not found
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })

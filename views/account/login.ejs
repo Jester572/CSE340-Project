@@ -1,0 +1,9 @@
+<!-- Content Heading EJS -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <%- messages() %>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<%- login %>

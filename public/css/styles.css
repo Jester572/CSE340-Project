@@ -23,6 +23,10 @@ a {
 
 }
 
+h1 {
+  text-align: center;
+}
+
 
 /******* Header ***************/
 
@@ -131,9 +135,6 @@ nav ul li a {
   grid-row: 1;
 }
 
-h1, h2, h3 {
-  font-size: x-large;
-}
 
 /******* Cars  *********/
 
@@ -181,4 +182,16 @@ img {
 #errorImage {
   margin: auto;
   width: 100%;
+}
+
+
+/********* Login View *************/
+
+form {
+  margin: auto;
+  background-color: var(--secondary-color);
+  border: 2px black solid;
+  border-radius: 15px;
+  padding: 15px;
+  max-width: 500px;
 }
