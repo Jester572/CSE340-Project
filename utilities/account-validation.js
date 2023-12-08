@@ -108,17 +108,71 @@ validate.checkLoginData = async (req, res, next) => {
     let errors = []
     errors = validationResult(req)
     if (!errors.isEmpty()) {
-      let nav = await utilities.getNav()
-      res.render("account/login", {
-        errors,
-        title: "Login",
-        nav,
-        account_email,
-      })
-      return 
+        let nav = await utilities.getNav()
+        res.render("account/login", {
+            errors,
+            title: "Login",
+            nav,
+            account_email,
+        })
+        return
     }
     next()
-  }
+}
 
+
+validate.addClassificationRules = () => {
+    return [
+        // password is required and must be strong password
+        body("classification_name")
+            .trim()
+            .notEmpty()
+            .isAlpha()
+            .withMessage("Classification does not meet requirements."),
+    ]
+}
+
+validate.checkClassificationData = async (req, res, next) => {
+    const { classification_name } = req.body
+    let errors = []
+    errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav()
+        res.render("account/login", {
+            errors,
+            title: "Login",
+            nav,
+        })
+        return
+    }
+    next()
+}
+
+validate.addInventoryRules = () => {
+    return [
+        // password is required and must be strong password
+        body("inv_make")
+            .trim()
+            .notEmpty()
+            .isAlpha()
+            .withMessage("Classification does not meet requirements."),
+    ]
+}
+
+validate.checkInventoryData = async (req, res, next) => {
+    const { classification_name } = req.body
+    let errors = []
+    errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav()
+        res.render("account/login", {
+            errors,
+            title: "Login",
+            nav,
+        })
+        return
+    }
+    next()
+}
 
 module.exports = validate

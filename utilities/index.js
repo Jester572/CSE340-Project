@@ -108,6 +108,16 @@ Util.buildLogin = function () {
   return login
 }
 
+Util.buildClassificationDropDown = async function(req, res, next)  {
+  const data = await invModel.getClassifications()
+
+  let classification_names = ''
+  data.rows.forEach((classification) => {
+    console.log(classification);
+    classification_names += '<option value="' + classification.classification_id + '">' + classification.classification_name + '</option>'
+  })
+  return classification_names
+}
 
 /* ****************************************
  * Middleware For Handling Errors

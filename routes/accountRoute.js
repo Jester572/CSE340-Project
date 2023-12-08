@@ -10,6 +10,8 @@ router.get("/login", Util.handleErrors(accountController.buildLogin))
 
 router.get("/register", Util.handleErrors(accountController.buildRegister))
 
+router.get("/management", Util.handleErrors(accountController.buildManagement))
+
 router.post(
     '/register',
     validate.registationRules(),

@@ -1,0 +1,13 @@
+<!-- Content Heading EJS -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+<%- messages() %>
+<form id="addClassificationForm" action="/inv/add-classification" method="post">
+    <h3>Must be alphabetic characters!</h3>
+    <label for="classification_name">Classification Name:</label><br>
+    <input name="classification_name" type="text" required value="<%= locals.classification_name %>" pattern="^[A-Za-z]+$"><br>
+    <input type="submit" id="add-classification-button" value="Add Classification">
+</form>

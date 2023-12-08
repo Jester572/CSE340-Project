@@ -1,0 +1,10 @@
+<!-- Content Heading EJS -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <%- messages() %>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<a href="../inv/add-classification">Add new classification</a><br>
+<a href="../inv/add-inventory">Add new inventory</a>

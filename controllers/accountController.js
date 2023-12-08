@@ -70,6 +70,15 @@ async function registerAccount(req, res) {
     }
 }
 
+async function buildManagement(req, res) {
+    let nav = await utilities.getNav()
+    res.render("account/management", {
+        title: "Register",
+        nav,
+        errors: null,
+    })
+}
+
 async function accountLogin(req, res) {
     let nav = await utilities.getNav()
     const { account_email, account_password } = req.body
@@ -87,4 +96,4 @@ async function accountLogin(req, res) {
     }
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount }
+module.exports = { buildLogin, buildRegister, registerAccount, buildManagement }
