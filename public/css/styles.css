@@ -195,3 +195,13 @@ form {
   padding: 15px;
   max-width: 500px;
 }
+
+/********* valid/invalid *************/
+
+input:focus:invalid {
+  background-color: rgb(212, 104, 104);
+}
+
+input:focus:valid {
+  background-color: rgb(109, 177, 109);
+ }

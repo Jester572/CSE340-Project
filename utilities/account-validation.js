@@ -155,7 +155,55 @@ validate.addInventoryRules = () => {
             .trim()
             .notEmpty()
             .isAlpha()
-            .withMessage("Classification does not meet requirements."),
+            .withMessage("Make does not meet requirements."),
+
+        body("inv_model")
+            .trim()
+            .notEmpty()
+            .isAlpha()
+            .withMessage("Model does not meet requirements."),
+
+        body("inv_description")
+            .trim()
+            .notEmpty()
+            .withMessage("Description does not meet requirements."),
+
+        body("inv_image")
+            .trim()
+            .notEmpty()
+            .withMessage("Image does not meet requirements."),
+
+        body("inv_thumbnail")
+            .trim()
+            .notEmpty()
+            .withMessage("Thumbnail does not meet requirements."),
+
+        body("inv_price")
+            .trim()
+            .notEmpty()
+            .isCurrency()
+            .withMessage("Price does not meet requirements."),
+
+        body("inv_year")
+            .trim()
+            .notEmpty()
+            .isInt({
+                min: 1000,
+                max: 9999}
+            )
+            .withMessage("Year does not meet requirements."),
+
+        body("inv_miles")
+            .trim()
+            .notEmpty()
+            .isInt()
+            .withMessage("Miles does not meet requirements."),
+
+        body("inv_color")
+            .trim()
+            .notEmpty()
+            .isAlpha()
+            .withMessage("Color does not meet requirements."),
     ]
 }
 
@@ -165,9 +213,9 @@ validate.checkInventoryData = async (req, res, next) => {
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
-        res.render("account/login", {
+        res.render("inv/add-inventory", {
             errors,
-            title: "Login",
+            title: "Add Inventory",
             nav,
         })
         return
