@@ -9,8 +9,17 @@
         margin: 25px auto;
         padding: 8px;
     }
-    
-    #ownToday{
+    /********* Hamburger Button **********/
+    .hamToggle {
+        display: none;
+    }
+
+    #navList {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #ownToday {
         width: auto;
     }
 
@@ -41,7 +50,7 @@
         display: flex;
         border: 3px solid black;
     }
-    
+
     #vehicle-img-section {
         width: 50%;
 

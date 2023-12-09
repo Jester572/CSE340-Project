@@ -41,22 +41,42 @@ h1 {
 
 /*******  Navigation ***************/
 
-nav ul {
+#navList {
   background-color: var(--primary-color);
   list-style-type: none;
-  display: flex;
+  display: none;
   padding: 15px 0px;
+  flex-direction: column;
 }
 
-nav ul li {
+#navList.show {
+  display: flex;
+}
+
+#navList li {
+  display: inline-block;
   flex: 1 1 auto;
   text-align: center;
 
 }
 
-nav ul li a {
+#navList li a {
   color: white;
+  display: block;
 }
+
+#navList li a:hover {
+  background-color: var(--secondary-color);
+  color: black;
+}
+
+.hamToggle {
+  display: flex;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
 
 /*******  Main ***************/
 
