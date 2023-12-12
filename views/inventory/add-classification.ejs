@@ -11,3 +11,11 @@
     <input name="classification_name" type="text" required value="<%= locals.classification_name %>" pattern="^[A-Za-z]+$"><br>
     <input type="submit" id="add-classification-button" value="Add Classification">
 </form>
+
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>

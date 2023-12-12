@@ -5,7 +5,7 @@
       res.redirect('/')
     } %>
 <%- messages() %>    
-<form id="addInventoryForm" action="/inv/add-inventory" method="post">
+<form id="editInventoryForm" action="/inv/update" method="post">
     <label for="classification_id">Classification</label><br>
     <select name="classification_id" id="classification_id"> 
         <%- classification_names %>
@@ -17,7 +17,7 @@
     <input required placeholder="Min of 3 characters" type="text" id="inv_model" name="inv_model" value="<%= locals.inv_model %>" pattern="^[A-Za-z ]{3,}$"><br>
 
     <label for="inv_description">Description</label><br>
-    <textarea name="inv_description"><%- locals.inv_description %></textarea><br>
+    <textarea name="inv_description" ><%- locals.inv_description %></textarea><br>
 
     <label for="inv_image">Image Path</label><br>
     <input required type="text" id="inv_image" name="inv_image" 
@@ -49,13 +49,16 @@
     <label for="inv_color">Color</label><br>
     <input required type="text" id="inv_color" name="inv_color" value="<%= locals.inv_color %>" pattern="^[A-Za-z]+$"><br>
 
-    <input type="submit" name="submit" id="add-inventory-button" value="Add Inventory"><br>
-</form>
+    <input type="submit" id="edit-inventory-button" value="Update Vehicle"><br>
+    <input type="hidden" name="inv_id"
+    <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+    <% } %>>
+  </form>
 
-<% if (errors) { %>
-  <ul class="notice">
-    <% errors.array().forEach(error => { %>
-      <li><%= error.msg %></li>
-    <% }) %>
-  </ul>
-<% } %>
+  <% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
