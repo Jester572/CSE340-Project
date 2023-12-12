@@ -1,7 +1,6 @@
 const utilities = require(".")
 const { body, validationResult } = require("express-validator")
 const accountModel = require('../models/account-model');
-const invModel = require('../models/inventory-model');
 
 const validate = {}
 
@@ -228,30 +227,18 @@ validate.checkInventoryData = async (req, res, next) => {
 
 validate.checkUpdateData = async (req, res, next) => {
     const { classification_name, inv_id } = req.body
+    console.log(inv_id);
     let errors = []
+    const classification_names = await utilities.buildClassificationDropDown()
     errors = validationResult(req)
     if (!errors.isEmpty()) {
-        const nav = await utilities.getNav()
-        let itemData = await invModel.getInventoryByInventoryId(inv_id)
-        itemData = itemData[0]
-        const classification_names = await utilities.buildClassificationDropDown()
-        const itemName = `${itemData.inv_make} ${itemData.inv_model}`
+        let nav = await utilities.getNav()
         res.render("inventory/edit-inventory", {
-            title: 'Edit ' + itemName,
-            nav,
-            classification_names,
             errors,
-            inv_id: itemData.inv_id,
-            inv_make: itemData.inv_make,
-            inv_model: itemData.inv_model,
-            inv_year: itemData.inv_year,
-            inv_description: itemData.inv_description,
-            inv_image: itemData.inv_image,
-            inv_thumbnail: itemData.inv_thumbnail,
-            inv_price: itemData.inv_price,
-            inv_miles: itemData.inv_miles,
-            inv_color: itemData.inv_color,
-            classification_id: itemData.classification_id
+            title: 'Edit Inventory',
+            nav,
+            inv_id,
+            classification_names
         })
         return
     }

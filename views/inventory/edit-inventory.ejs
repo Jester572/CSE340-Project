@@ -5,9 +5,9 @@
       res.redirect('/')
     } %>
 <%- messages() %>    
-<form id="editInventoryForm" action="/inv/update" method="post">
+<form id="updateForm" action="/inv/update" method="post">
     <label for="classification_id">Classification</label><br>
-    <select name="classification_id" id="classification_id"> 
+    <select name="classification_id" id="classification_id" value="<%= locals.classification_id %>"> 
         <%- classification_names %>
     </select><br>
     <label for="inv_make">Make</label><br>
@@ -49,7 +49,7 @@
     <label for="inv_color">Color</label><br>
     <input required type="text" id="inv_color" name="inv_color" value="<%= locals.inv_color %>" pattern="^[A-Za-z]+$"><br>
 
-    <input type="submit" id="edit-inventory-button" value="Update Vehicle"><br>
+    <input type="submit" disabled id="edit-inventory-button" value="Update Vehicle"><br>
     <input type="hidden" name="inv_id"
     <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
     <% } %>>
@@ -62,3 +62,4 @@
       <% }) %>
     </ul>
   <% } %>
+  <script src="../../js/inv-update.js"></script>
