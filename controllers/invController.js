@@ -83,7 +83,6 @@ invCont.buildAddInventory = async function (req, res) {
 * *************************************** */
 invCont.addClassification = async function (req, res) {
   let nav = await utilities.getNav()
-  console.log(req.body);
   const { classification_name } = req.body
 
   const classificationResult = await invModel.addClassification(
@@ -107,7 +106,6 @@ invCont.addClassification = async function (req, res) {
 * *************************************** */
 invCont.addInventory = async function (req, res) {
   let nav = await utilities.getNav()
-  console.log(req.body);
   const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id } = req.body
 
   const inventoryResult = await invModel.addInventory(
@@ -254,7 +252,6 @@ invCont.buildDeleteView = async function (req, res) {
 invCont.deleteInventory = async function (req, res, next) {
   let nav = await utilities.getNav()
   const { inv_id, inv_make, inv_model } = req.body
-  console.log(inv_id);
   const deleteResult = await invModel.deleteInventory(inv_id)
 
   if (deleteResult) {
