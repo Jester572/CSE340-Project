@@ -3,11 +3,11 @@
     <%- messages() %>
     <div id="register-form">
         <form action="/account/register" method="post">
-            <label for="account_firstname">First Name:</label></br><input name="account_firstname" type="text" required id="fname" value="<%= locals.account_firstname %>"></br>
-            <label for="account_lastname">Last Name:</label></br><input name="account_lastname" type="text" required id="lname" value="<%= locals.account_lastname %>"></br>
-            <label for="account_email">E-mail:</label></br><input name="account_email" type="email" id="email" required placeholder="Enter a valid email address" value="<%= locals.account_email %>"></br>
-            <label for="account_password">Password:</label></br><input name="account_password" type="password" id="password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"></br>
-            <div> <h4>Password Must Include:</h4><ul><li>12 characters</li> <li>1 uppercase character</li> <li>1 number</li><li>1 special character</li></ul></div>
+            <label for="account_firstname">First Name:</label></br><input name="account_firstname" type="text" required id="account_firstname" value="<%= locals.account_firstname %>"></br>
+            <label for="account_lastname">Last Name:</label></br><input name="account_lastname" type="text" required id="account_lastname" value="<%= locals.account_lastname %>"></br>
+            <label for="account_email">E-mail:</label></br><input name="account_email" type="email" id="account_email" required placeholder="Enter a valid email address" value="<%= locals.account_email %>"></br>
+            <label for="account_password">Password:</label></br><input name="account_password" type="password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"></br>
+            <div> <h2>Password Must Include:</h2><ul><li>12 characters</li> <li>1 uppercase character</li> <li>1 number</li><li>1 special character</li></ul></div>
             <input type="submit" id="register-button" value="Register">
         </form>
     </div>
