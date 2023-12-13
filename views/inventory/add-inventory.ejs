@@ -17,7 +17,7 @@
     <input required placeholder="Min of 3 characters" type="text" id="inv_model" name="inv_model" value="<%= locals.inv_model %>" pattern="^[A-Za-z ]{3,}$"><br>
 
     <label for="inv_description">Description</label><br>
-    <textarea name="inv_description"><%- locals.inv_description %></textarea><br>
+    <textarea id="inv_description" name="inv_description"><%- locals.inv_description %></textarea><br>
 
     <label for="inv_image">Image Path</label><br>
     <input required type="text" id="inv_image" name="inv_image" 

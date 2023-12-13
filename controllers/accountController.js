@@ -74,8 +74,9 @@ async function registerAccount(req, res) {
 
 async function buildManagement(req, res) {
     let nav = await utilities.getNav()
+    req.flash("success","You are logged in")
     res.render("account/management", {
-        title: "Register",
+        title: "Account Management",
         nav,
         errors: null,
     })
