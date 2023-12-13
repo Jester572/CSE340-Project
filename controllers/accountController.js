@@ -74,7 +74,6 @@ async function registerAccount(req, res) {
 
 async function buildManagement(req, res) {
     let nav = await utilities.getNav()
-    req.flash("success","You are logged in")
     res.render("account/management", {
         title: "Account Management",
         nav,
@@ -111,4 +110,9 @@ async function accountLogin(req, res) {
     }
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount, buildManagement, accountLogin }
+async function accountLogOut(req, res) {
+    res.clearCookie('jwt')
+    res.redirect('/')
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, buildManagement, accountLogin, accountLogOut }

@@ -9,6 +9,8 @@ router.get("/",Util.checkLogin, Util.handleErrors(accountController.buildManagem
 
 router.get("/login", Util.handleErrors(accountController.buildLogin))
 
+router.get("/logout", Util.handleErrors(accountController.accountLogOut))
+
 router.get("/register", Util.handleErrors(accountController.buildRegister))
 
 router.post(
