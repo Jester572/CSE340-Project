@@ -13,6 +13,8 @@ router.get("/logout", Util.handleErrors(accountController.accountLogOut))
 
 router.get("/register", Util.handleErrors(accountController.buildRegister))
 
+router.get("/update/:account_id", Util.handleErrors(accountController.buildUpdateView))
+
 router.post(
   '/register',
   validate.registrationRules(),
@@ -26,6 +28,21 @@ router.post(
   validate.loginRules(),
   validate.checkLoginData,
   Util.handleErrors(accountController.accountLogin)
+)
+
+router.post(
+  "/updateAccount",
+  validate.updateAccountRules(),
+  validate.checkUpdateAccount,
+  Util.handleErrors(accountController.updateAccount)
+)
+
+router.post(
+  "/updatePassword",
+  validate.updatePasswordRules(),
+  validate.checkUpdatePassword,
+  Util.handleErrors(accountController.updateAccountPassword)
+  
 )
 
 module.exports = router

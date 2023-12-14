@@ -6,7 +6,7 @@ const Util = require("../utilities/index");
 const validate = require('../utilities/account-validation')
 
 router.get("/",
-Util.checkLogin,
+Util.checkAccount,
 Util.handleErrors(invController.buildManager))
 
 // Route to build inventory by classification view
